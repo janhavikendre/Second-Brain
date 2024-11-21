@@ -43,23 +43,26 @@ export default function Features() {
             icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNjk2YzUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1icmFpbiI+PHBhdGggZD0iTTEyIDVhMyAzIDAgMSAwLTUuOTk3LjEyNSA0IDQgMCAwIDAtMi41MjYgNS43NyA0IDQgMCAwIDAgLjU1NiA2LjU4OEE0IDQgMCAxIDAgMTIgMThaIi8+PHBhdGggZD0iTTEyIDVhMyAzIDAgMSAxIDUuOTk3LjEyNSA0IDQgMCAwIDEgMi41MjYgNS43NyA0IDQgMCAwIDEtLjU1NiA2LjU4OEE0IDQgMCAxIDEgMTIgMThaIi8+PHBhdGggZD0iTTE1IDEzYTQuNSA0LjUgMCAwIDEtMy00IDQuNSA0LjUgMCAwIDEtMyA0Ii8+PHBhdGggZD0iTTE3LjU5OSA2LjVhMyAzIDAgMCAwIC4zOTktMS4zNzUiLz48cGF0aCBkPSJNNi4wMDMgNS4xMjVBMyAzIDAgMCAwIDYuNDAxIDYuNSIvPjxwYXRoIGQ9Ik0zLjQ3NyAxMC44OTZhNCA0IDAgMCAxIC41ODUtLjM5NiIvPjxwYXRoIGQ9Ik0xOS45MzggMTAuNWE0IDQgMCAwIDEgLjU4NS4zOTYiLz48cGF0aCBkPSJNNiAxOGE0IDQgMCAwIDEtMS45NjctLjUxNiIvPjxwYXRoIGQ9Ik0xOS45NjcgMTcuNDg0QTQgNCAwIDAgMSAxOCAxOCIvPjwvc3ZnPg=="
         }
     ]
-
     return (
-        <div className=" h-screen bg-gray-800 text-center">
-            <h1 className="  flex transform-origin:top justify-center text-4xl text-white font-bold mb-4">Features</h1>
-            <div className=" p-10 mt-20 grid grid-cols-3 gap-10 gap-y-10 ">
-                {features.map((feature) => (
-                    <div className="flex flex-col items-center justify-center bg-gray-700 hover:bg-gray-900 p-4 rounded-lg w-50 h-50">
-                        <img src={feature.icon} className="w-10 h-10" />
-                        <h2 className="text-xl text-white font-bold">{feature.title}</h2>
-                        <p className="text-white">{feature.description}</p>
-
+        <div className="h-screen bg-gray-800 text-center p-5">
+            <h1 className="flex justify-center text-4xl text-white font-bold mb-8">Features</h1>
+            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+                {features.map((feature, index) => (
+                    <div
+                        key={index}
+                        className={`flex flex-col items-center justify-center bg-gray-700 hover:bg-gray-900 p-6 rounded-lg w-full 
+                        ${index >= 3 ? 'sm:hidden md:block' : ''}`} // Hide from 4th card on small screens, show on md+
+                    >
+                        <img src={feature.icon} className=" flex w-16 h-16 mb-4 " />
+                        <h2 className="text-lg sm:text-xl text-white font-bold mb-2">{feature.title}</h2>
+                        <p className="text-sm sm:text-base text-white">{feature.description}</p>
                     </div>
                 ))}
             </div>
-
-
         </div>
-
-    )
-}
+    );
+    
+    
+    
+    
+}    

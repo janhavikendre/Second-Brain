@@ -4,8 +4,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 import signupRouter from './Rout/signup';
 import signinRouter from './Rout/signin';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
