@@ -4,8 +4,7 @@ import  { signup }  from "../services/api";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
+    username: "",
     email: "",
     password: "",
     image: "",
@@ -49,7 +48,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="h-screen bg-gray-800 text-center">
+    <div className="min-h-screen bg-gray-800 text-center">
       <h1 className="flex justify-center text-4xl text-white font-bold mb-4">Signup</h1>
       <form
         className="flex flex-col items-center jsutify-center p-5 mt-20"
@@ -57,18 +56,10 @@ export default function Signup() {
       >
         <input
           type="text"
-          name="firstname"
-          placeholder="firstname"
+          name="username"
+          placeholder="username"
           className="bg-gray-700 p-2 rounded-lg text-white w-80 mb-4"
-          value={formData.firstname}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="lastname"
-          className="bg-gray-700 p-2 rounded-lg text-white w-80 mb-4"
-          value={formData.lastname}
+          value={formData.username}
           onChange={handleChange}
         />
         <input

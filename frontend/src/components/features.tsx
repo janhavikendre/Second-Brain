@@ -45,15 +45,11 @@ export default function Features() {
     ]
     return (
         <div className="h-screen bg-gray-800 text-center p-5">
-            <h1 className="flex justify-center text-4xl text-white font-bold mb-8">Features</h1>
-            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-                {features.map((feature, index) => (
-                    <div
-                        key={index}
-                        className={`flex flex-col items-center justify-center bg-gray-700 hover:bg-gray-900 p-6 rounded-lg w-full 
-                        ${index >= 3 ? 'sm:hidden md:block' : ''}`} // Hide from 4th card on small screens, show on md+
-                    >
-                        <img src={feature.icon} className=" flex w-16 h-16 mb-4 " />
+            <h1 className="flex justify-center text-4xl text-white font-bold mb-10">Features</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                {features.map((feature) => (
+                    <div className="flex flex-col items-center justify-center bg-gray-700 hover:bg-gray-900 p-6 rounded-lg w-full">
+                        <img src={feature.icon} className="w-16 h-16 mb-4" />
                         <h2 className="text-lg sm:text-xl text-white font-bold mb-2">{feature.title}</h2>
                         <p className="text-sm sm:text-base text-white">{feature.description}</p>
                     </div>
@@ -61,8 +57,5 @@ export default function Features() {
             </div>
         </div>
     );
-    
-    
-    
     
 }    

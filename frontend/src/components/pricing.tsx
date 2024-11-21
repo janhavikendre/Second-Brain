@@ -38,29 +38,29 @@ export default function Pricing() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-800 text-center p-5">
-            <h1 className="text-4xl text-white font-bold mb-8">Pricing</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="h-screen bg-gray-800 text-center">
+            <h1 className="flex justify-center text-4xl text-white font-bold mb-8">Pricing</h1>
+            <div className="p-5 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 gap-y-10">
                 {plans.map((plan, index) => (
-                    <div
-                        key={index}
-                        className="flex flex-col items-center bg-gray-700 hover:bg-gray-900 p-6 rounded-lg min-h-[350px] transition duration-300"
-                    >
+                    <div key={index} className="flex flex-col items-center justify-between bg-gray-700 hover:bg-gray-900 p-6 rounded-lg min-h-[350px]">
                         <h2 className="text-4xl text-white font-bold mb-4">{plan.name}</h2>
-                        <p className="text-white font-semibold mb-4">{plan.description}</p>
-                        <p className="text-white font-semibold text-3xl mb-2">{plan.price}</p>
+                        
+                        <div className="flex flex-col items-center mb-4">
+                        <p className="text-white font-semibold">{plan.description}</p>
+                            <p className="text-white font-semibold text-3xl mb-2">{plan.price}</p>
+                        </div>
+
                         <ul className="text-white mb-6">
                             {plan.features.map((feature, idx) => (
                                 <li key={idx} className="mb-2">- {feature}</li>
                             ))}
                         </ul>
-                        <button className="bg-purple-300 p-3 rounded-lg text-black w-full hover:bg-blue-500 transition duration-300">
-                            Choose Plan
-                        </button>
+                            <button className="bg-purple-300 p-3 rounded-lg text-black w-96 hover:bg-blue-900 transition duration-300">
+                                Choose Plan
+                            </button>
                     </div>
                 ))}
             </div>
         </div>
     );
-    
 }
