@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Features from "./features";
 import Pricing from "./pricing";
 import About from "./about";
+import Navbar from "./navbar";
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +15,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col justify-center items-center bg-gray-800 text-center p-4 ">
-            {/* Hero Section */}
+            <Navbar />
             <div className="flex flex-col justify-center items-center h-screen bg-gray-800 text-center p-4">
                 <h1
                     className={`text-4xl text-purple-300 font-bold mb-4 transition-opacity duration-1000 ${

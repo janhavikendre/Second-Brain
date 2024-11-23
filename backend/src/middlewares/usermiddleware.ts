@@ -9,11 +9,11 @@ interface CustomRequest extends Request {
     userId?: string; 
 }
 
-function usermiddleware(req: CustomRequest, res: Response, next: NextFunction) {
-    const token = req.headers.token;
+export default function usermiddleware(req: CustomRequest, res: Response, next: NextFunction): void {
+    const token = req.headers.token || "";
 
     if (!token) {
-        return res.status(401).json({
+         res.status(401).json({
             message: "No token provided"
         });
     }
@@ -27,17 +27,14 @@ function usermiddleware(req: CustomRequest, res: Response, next: NextFunction) {
             req.userId = decoded.id; 
             next(); 
         } else {
-            return res.status(401).json({
+             res.status(401).json({
                 message: "Unauthorized"
             });
         }
     } catch (e) {
-        return res.status(403).json({
+         res.status(403).json({
             message: "Invalid token"
         });
     }
 }
 
-module.exports = {
-    usermiddleware,
-};

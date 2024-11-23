@@ -5,12 +5,14 @@ dotenv.config();
 import signupRouter from './Rout/signup';
 import signinRouter from './Rout/signin';
 import cors from 'cors';
-
+import BrainRouter from './Rout/Brain';
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
+
+app.use('/brain', BrainRouter);
 
 app.use('/user', signupRouter);
 

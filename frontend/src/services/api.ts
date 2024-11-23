@@ -23,3 +23,13 @@ export const signin = async (credentials: object) => {
         throw error.response?.data || error.message;
     }
 };
+
+export const createBrain = async (brainData: object, token: string) => {
+    try {
+        const response = await axios.post(`${API_URL}/brain/create`,token, brainData);
+        return response.data;
+    } catch (error: any) {
+        console.error('Error during createBrain:', error.response?.data || error.message);
+        throw error.response?.data || error.message;
+    }
+    }

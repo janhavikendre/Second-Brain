@@ -37,7 +37,7 @@ export default function Signup() {
         // Store the token
         localStorage.setItem("token", data.token);
         // Navigate to /home
-        navigate("/Brain");
+        navigate("/brain");
       } else {
         setError(data.message || "Signup failed");
       }
