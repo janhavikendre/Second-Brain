@@ -100,29 +100,15 @@ BrainRouter.delete("/delete/:id", usermiddleware_1.default, (req, res) => __awai
         console.error(error);
     }
 }));
-BrainRouter.get("/get", usermiddleware_1.default, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+BrainRouter.get('/user', usermiddleware_1.default, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
         const userId = (_a = req.userId) !== null && _a !== void 0 ? _a : "";
-        const brain = yield db_1.Brain.find({
-            user: userId
-        });
-        if (brain) {
-            res.status(200).json({
-                message: "Brain fetched",
-                brain,
-                _id: brain._id
-            });
-        }
-        else {
-            res.status(400).json({
-                message: "Brain not found"
-            });
-        }
+        const Allbrain = yield db_1.Brain.find({ user: userId });
+        res.status(200).json(Allbrain);
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Error fetching brains", error });
     }
 }));
 exports.default = BrainRouter;

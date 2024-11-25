@@ -98,28 +98,13 @@ BrainRouter.delete("/delete/:id", userMiddleware, async (req: CustomRequest, res
     }
 })
 
-BrainRouter.get("/get", userMiddleware, async (req: CustomRequest, res: Response) => {
-    try {
-        const userId = req.userId ?? "";
-        const brain = await Brain.find({
-            user: userId
-        });
-        if (brain) {
-            res.status(200).json({
-                message: "Brain fetched",
-                brain,
-                _id: (brain as any)._id
-            })
-        } else {
-            res.status(400).json({
-                message: "Brain not found"
-            })
-        }
-    }
-    catch (error) {
-        console.error(error)
-        res.status(500).json({ message: "Error fetching brains", error });
-
+BrainRouter.get('/user',userMiddleware,async (req: CustomRequest , res : Response) => {    
+    try{
+        const userId = req.userId ?? "" ;
+        const Allbrain = await Brain.find({user : userId});
+        res.status(200).json(Allbrain);
+    }catch(error){
+            console.error(error)
     }
 })
 

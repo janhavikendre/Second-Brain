@@ -32,7 +32,7 @@ export const createBrain = async (brainData: object, token: string) => {
             brainData,
             {
                 headers: {
-                    Authorization: `Bearer ${token}`, // Ensure token is sent in headers
+                    token
                 },
             }
         );
@@ -43,17 +43,45 @@ export const createBrain = async (brainData: object, token: string) => {
     }
 };
 
-// Get Brain Service
-export const getBrain = async (token: string) => {
+export const getUserBrains = async (token: string) => {
     try {
-        const response = await axios.get(`${API_URL}/brain/get`, {
+        const response = await axios.get(`${API_URL}/brain/user`, {
             headers: {
-                Authorization: `Bearer ${token}`, // Ensure token is sent in headers
+                token, 
             },
         });
         return response.data;
     } catch (error: any) {
-        console.error('Error during getBrain:', error.response?.data || error.message);
+        console.error('Error fetching user brains:', error.response?.data || error.message);
+        throw error.response?.data || error.message;
+    }
+};
+
+export const deleteBrain = async (id: string, token: string) => {
+
+    try {
+        const response = await axios.delete(`${API_URL}/brain/delete/${id}`, {
+            headers: {
+                token
+            },
+        });
+        return response.data;
+    } catch (error: any) {
+        console.error('Error during deleteBrain:', error.response?.data || error.message);
+        throw error.response?.data || error.message;
+    }
+}
+
+export const updateBrain = async (id: string, updatedData: object, token: string) => {
+    try {
+        const response = await axios.put(`${API_URL}/brain/update/${id}`, updatedData, {
+            headers: {
+                token, 
+            },
+        });
+        return response.data;
+    } catch (error: any) {
+        console.error('Error updating brain:', error.response?.data || error.message);
         throw error.response?.data || error.message;
     }
 };
