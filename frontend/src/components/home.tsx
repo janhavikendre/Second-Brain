@@ -14,8 +14,9 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-center bg-gray-800 text-center p-4 ">
+        <>
             <Navbar />
+        <div className="flex flex-col justify-center items-center bg-gray-800 text-center p-4 ">
             <div className="flex flex-col justify-center items-center h-screen bg-gray-800 text-center p-4">
                 <h1
                     className={`text-4xl text-purple-300 font-bold mb-4 transition-opacity duration-1000 ${
@@ -57,5 +58,6 @@ export default function Home() {
                 <About />
             </div>
         </div>
+        </>
     );
 }

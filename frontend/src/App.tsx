@@ -8,6 +8,7 @@ import Features from './components/features';
 import Pricing from './components/pricing';
 import About from './components/about';
 import Brain from './Brain/brain';
+import BrainPage from './Brain/brainPage';
 
 
 const isAuthenticated = () => !!localStorage.getItem('token');
@@ -21,7 +22,8 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path='/brain' element={isAuthenticated() ? <Brain /> : <Navigate to='/signin' />} />
- 
+          <Route path='/page' element={isAuthenticated() ? <BrainPage /> : <Navigate to='/signin' />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

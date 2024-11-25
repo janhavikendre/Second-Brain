@@ -40,6 +40,7 @@ BrainRouter.post("/create", usermiddleware_1.default, (req, res) => __awaiter(vo
     }
     catch (error) {
         console.error(error);
+        res.status(500).json({ message: "Error creating brain", error });
     }
 }));
 BrainRouter.put("/update/:id", usermiddleware_1.default, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -66,6 +67,11 @@ BrainRouter.put("/update/:id", usermiddleware_1.default, (req, res) => __awaiter
                 message: "Brain updated",
                 brain,
                 _id: brain._id
+            });
+        }
+        else {
+            res.status(400).json({
+                message: "Brain not found"
             });
         }
     }
@@ -108,9 +114,15 @@ BrainRouter.get("/get", usermiddleware_1.default, (req, res) => __awaiter(void 0
                 _id: brain._id
             });
         }
+        else {
+            res.status(400).json({
+                message: "Brain not found"
+            });
+        }
     }
     catch (error) {
         console.error(error);
+        res.status(500).json({ message: "Error fetching brains", error });
     }
 }));
 exports.default = BrainRouter;

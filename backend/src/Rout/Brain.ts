@@ -32,7 +32,9 @@ BrainRouter.post("/create", userMiddleware, async (req: CustomRequest, res: Resp
         }
     }
      catch (error) {
-        console.error(error)
+        console.error(error);
+        res.status(500).json({ message: "Error creating brain", error });
+
         
     }
 });
@@ -61,6 +63,10 @@ BrainRouter.put("/update/:id", userMiddleware, async (req: CustomRequest, res: R
                 message: "Brain updated",
                 brain, 
                 _id: (brain as any)._id
+            })
+        } else {
+            res.status(400).json({
+                message: "Brain not found"
             })
         }
     }
@@ -104,10 +110,16 @@ BrainRouter.get("/get", userMiddleware, async (req: CustomRequest, res: Response
                 brain,
                 _id: (brain as any)._id
             })
+        } else {
+            res.status(400).json({
+                message: "Brain not found"
+            })
         }
     }
     catch (error) {
         console.error(error)
+        res.status(500).json({ message: "Error fetching brains", error });
+
     }
 })
 
