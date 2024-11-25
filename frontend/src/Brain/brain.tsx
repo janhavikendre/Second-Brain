@@ -48,7 +48,9 @@ function Brain() {
   return (
     <>
     <div className='flex min-h-screen'>
-    <Sidebar />
+    <Sidebar>
+
+    
     <div className="min-h-screen w-screen  bg-gray-800  justify-center items-center ">
       <button onClick={toogle} className='px-4 py-2 bg-purple-400  ml-[100px] sm:ml-[200px] md:ml-[240px] lg:ml-[580px] mt-5 rounded-2xl'>{toggleMenu ? 'Close brain' : 'Create Brain'}</button>
       {toggleMenu ? 
@@ -109,6 +111,7 @@ function Brain() {
       : null
      }
     </div>
+    </Sidebar>
     </div>
     </>
   );

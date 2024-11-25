@@ -23,7 +23,7 @@ export default function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path='/brain' element={isAuthenticated() ? <Brain /> : <Navigate to='/signin' />} />
           <Route path='/page' element={isAuthenticated() ? <BrainPage /> : <Navigate to='/signin' />} />
-          
+
         </Routes>
       </BrowserRouter>
     </div>
